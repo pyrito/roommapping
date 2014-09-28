@@ -1,15 +1,6 @@
-  void setup() {
-  float yaw;
-  float pitch;
-  float yawOffset;
-  float pitchOffset;
-  int dis;
-  
-  }
+#include <Arduino.h>
+//this the mathematics function for the x, y, z points. 
 
-  void loop() 
-  {
-  }
   void math(float yaw, float yawOffset, float pitch, float pitchOffset, int dis)
  {
     
@@ -18,5 +9,4 @@
     int z = dis*sin(pitch+pitchOffset);
     
   } 
-  
   
