@@ -9,30 +9,30 @@ const int motor2Pin2 = 10;
 //const int motor2Control = 10;
 
 void goForward(){
-  analogWrite(motor1Pin1, 200); 
+  analogWrite(motor1Pin1, 110); 
   digitalWrite(motor1Pin2, LOW); 
-  analogWrite(motor2Pin1, 150); 
+  analogWrite(motor2Pin1, 100); 
   digitalWrite(motor2Pin2, LOW); 
 }
 
 void goBackwards(){
-  analogWrite(motor1Pin2, 200); 
+  analogWrite(motor1Pin2, 110); 
   digitalWrite(motor1Pin1, LOW); 
-  analogWrite(motor2Pin2, 150); 
+  analogWrite(motor2Pin2, 100); 
   digitalWrite(motor2Pin1, LOW); 
 }
 
-void goLeft(){
-  analogWrite(motor1Pin2, 150);
+void goRight(){
+  analogWrite(motor1Pin2, 110);
   digitalWrite(motor1Pin1, LOW);
-  analogWrite(motor2Pin1, 150);
+  analogWrite(motor2Pin1, 100);
   analogWrite(motor2Pin2, LOW);
 }
 
-void goRight(){
-  analogWrite(motor1Pin1, 150);
+void goLeft(){
+  analogWrite(motor1Pin1, 110);
   digitalWrite(motor1Pin2, LOW);
-  analogWrite(motor2Pin2, 150);
+  analogWrite(motor2Pin2, 100);
   digitalWrite(motor2Pin1, LOW);
 }
 

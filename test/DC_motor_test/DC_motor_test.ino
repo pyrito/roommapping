@@ -10,7 +10,7 @@ void setup(){
 
 void loop(){
 
- goRight();
+ goLeft();
  
  
 }
