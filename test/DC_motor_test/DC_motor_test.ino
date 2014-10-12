@@ -10,10 +10,10 @@ void setup(){
 
 void loop(){
 
- goLeft();
+ goRight();
  
  
 }
 
 
-
+ 

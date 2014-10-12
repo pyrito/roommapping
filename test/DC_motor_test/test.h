@@ -22,7 +22,7 @@ void goBackwards(){
   digitalWrite(motor2Pin1, LOW); 
 }
 
-void goRight(){
+void goLeft(){
   analogWrite(motor1Pin2, 150);
   digitalWrite(motor1Pin1, LOW);
   analogWrite(motor2Pin1, 150);
@@ -32,7 +32,7 @@ void goRight(){
 void goRight(){
   analogWrite(motor1Pin1, 150);
   digitalWrite(motor1Pin2, LOW);
-  analogWrite(motor1Pin2, 150);
-  digitalWrite(motor1Pin1, LOW);
+  analogWrite(motor2Pin2, 150);
+  digitalWrite(motor2Pin1, LOW);
 }
 
