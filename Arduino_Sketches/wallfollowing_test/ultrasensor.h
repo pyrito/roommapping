@@ -15,7 +15,7 @@ long microsecondsToCentimeters(long microseconds){
 return microseconds / 29 / 2;
 }
 
-void ultrasound(){
+int ultrasound(){
   long duration, feet, inches, cm;
   
   pinMode(triggerPin, OUTPUT);
@@ -30,11 +30,8 @@ void ultrasound(){
  
   inches = microsecondsToInches(duration);
   cm = microsecondsToCentimeters(duration);
-  feet = microsecondsToFeet(duration);
-
-  Serial.print(cm);
-  Serial.print("cm");
-  Serial.println();
-
+  //feet = microsecondsToFeet(duration);
+  return round(cm);
+  
   delay(500);
 }
