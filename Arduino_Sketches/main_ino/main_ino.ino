@@ -11,9 +11,12 @@ void setup(){
 void loop(){
    for (int y=0; y<=18; y++){
     yawServo.write(y*10);
+    
     delay(50);  
-  } 
   
+} 
+  void goForward();
+  void wallFollow();
   
   
 }
