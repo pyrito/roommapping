@@ -6,6 +6,6 @@
  
 void SetPanTiltConfiguration(float yaw, float pitch, float yawOffset, float pitchOffset)
 { 
-  yawServo.write(yaw + yawOffset);
+  yawServo.write(yaw - yawOffset);
   pitchServo.write(pitch + pitchOffset);
 }

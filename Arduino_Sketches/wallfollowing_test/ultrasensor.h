@@ -11,12 +11,12 @@ long microsecondsToFeet(long microseconds){
 return microseconds / 74 / 2 / 12;
 }
 
-long microsecondsToCentimeters(long microseconds){
-return microseconds / 29 / 2;
+float microsecondsToCentimeters(float microseconds){
+return microseconds / 29.0 / 2.0;
 }
 
-int ultrasound(){
-  long duration, feet, inches, cm;
+float ultrasound(){
+  float pulseDuration;
   
   pinMode(triggerPin, OUTPUT);
   digitalWrite(triggerPin, LOW);
@@ -26,12 +26,7 @@ int ultrasound(){
   digitalWrite(triggerPin, LOW);
 
   pinMode(echoPin, INPUT);
-  duration = pulseIn(echoPin, HIGH);
+  pulseDuration = pulseIn(echoPin, HIGH);
  
-  inches = microsecondsToInches(duration);
-  cm = microsecondsToCentimeters(duration);
-  //feet = microsecondsToFeet(duration);
-  return round(cm);
-  
-  delay(500);
+  return microsecondsToCentimeters(pulseDuration);
 }
