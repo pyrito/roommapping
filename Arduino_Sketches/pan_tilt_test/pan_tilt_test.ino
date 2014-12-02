@@ -1,56 +1,64 @@
 #include "pan_tilt_test.h"
-#include "sharpsensor_test.h"
-
 #include <Servo.h>
 
 int yawOffset = 10;
 int pitchOffset = 35;
+
 float yaw, pitch;
-int measure = sharp.distance();
 int x,y;
 
 void setup()
 {
+  delay(11000);
   Serial.begin(9600);
   yawServo.attach(8);
   digitalWrite(8, HIGH);
   pitchServo.attach(9);
+  
   SetPanTiltConfiguration(90, 0, yawOffset, pitchOffset);
-  delay(1000);
-  //scan();
-}
-
-int coordinates()
-{
-  int x = measure*cos(yaw+yawOffset);
-  int y = measure*sin(yaw+yawOffset);
-  int z = measure*sin(pitch+pitchOffset);
 }
 
 void scan()
 { 
-  for(int y = 0; y < 50; y += 10)
+  
+  for(int y = 0; y <= 5; y++)
   {
     SetPanTiltConfiguration(0, y, yawOffset, pitchOffset);
+    delay(400);
     
-        for (int x = 0; x < 180; x += 10)
+        for (int x = 0; x <= 90; x += 10)
         {
             SetPanTiltConfiguration(x, y, yawOffset, pitchOffset);
             //IRsensor();
             //coordinates();
-            //code to take measurements
+
             Serial.print(x);
             Serial.print(" ");
-            Serial.print(y);
+            Serial.print(90-y);
             Serial.print(" ");
-            Serial.println((sharp.distance() + sharp.distance() + sharp.distance() + sharp.distance() + sharp.distance() )/(5.0));
+            Serial.println(filteredDistance(20,90,20));
+            
             delay(200);
         }
+        
   }
 
 }
-void loop(){
- //IRsensor();
+void loop()
+{
+  
+  //Serial.println(distance());
+  //Serial.println(filteredDistance(20, 1000, 20));
+  scan();
+  delay(200);
+}
 
- scan();
+void movement()
+{
+  for (int z = 0; z <=15; z += 1)
+  {
+    SetPanTiltConfiguration(90, z, yawOffset, pitchOffset);
+    delay(1000);
+  }
+  
 }
