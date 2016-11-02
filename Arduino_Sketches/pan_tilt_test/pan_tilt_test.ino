@@ -29,8 +29,8 @@ void scan()
         for (int x = 0; x <= 90; x += 10)
         {
             SetPanTiltConfiguration(x, y, yawOffset, pitchOffset);
-            //IRsensor();
-            //coordinates();
+            Serial.print(distance());
+            Serial.print(" ");
 
             Serial.print(x);
             Serial.print(" ");
